@@ -53,4 +53,8 @@ module.exports.userController = {
     const users = await User.find();
     res.json(users);
   },
+  getUser: async (req,res) => {
+    const user = await User.findById(req.user.id)
+    res.json(user)
+  }
 };
