@@ -17,4 +17,8 @@ module.exports.productController = {
       res.json({ error: error.message });
     }
   },
+  findProducts: async (req,res) => {
+    const data = await Product.find()
+    res.json(data)
+  }
 };
