@@ -2,7 +2,6 @@ const Product = require("../models/Product.model");
 
 module.exports.productController = {
   addProduct: async (req, res) => {
-    console.log(req.files[0].path);
     try {
       const product = await Product.create({
         title: req.body.title,
@@ -10,6 +9,7 @@ module.exports.productController = {
         adress: req.body.adress,
         phone: req.body.phone,
         price: req.body.price,
+        categorie: req.body.categorie,
         image: req.files
       });
       res.json(product);
