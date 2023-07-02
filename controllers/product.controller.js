@@ -10,15 +10,16 @@ module.exports.productController = {
         phone: req.body.phone,
         price: req.body.price,
         categorie: req.body.categorie,
-        image: req.files
+        image: req.files,
+        user: req.user.id
       });
       res.json(product);
     } catch (error) {
       res.json({ error: error.message });
     }
   },
-  findProducts: async (req,res) => {
-    const data = await Product.find()
-    res.json(data)
-  }
+  findProducts: async (req, res) => {
+    const data = await Product.find();
+    res.json(data);
+  },
 };

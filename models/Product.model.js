@@ -7,10 +7,14 @@ const productSchema = mongoose.Schema({
   phone: Number,
   price: Number,
   categorie: {
-    ref: "Categories",
+    ref: "Category",
     type: mongoose.SchemaTypes.ObjectId,
   },
   image: [],
+  user: {
+    ref: "User",
+    type: mongoose.SchemaTypes.ObjectId,
+  },
 });
 
 const Product = mongoose.model("Product", productSchema);
