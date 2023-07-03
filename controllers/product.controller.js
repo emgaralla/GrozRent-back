@@ -19,11 +19,19 @@ module.exports.productController = {
     }
   },
   findProducts: async (req, res) => {
-    const data = await Product.find();
+    const data = await Product.find().populate("user");
     res.json(data);
   },
   getUserProduct: async (req, res) => {
     const data = await Product.find({ user: req.user.id });
     res.json(data);
+  findOneProduct: async (req, res) => {
+    try {
+      const oneProduct = await Product.findById(req.params.id).populate("user");
+
+      res.json(oneProduct);
+    } catch (error) {
+      res.json({ error: error.message });
+    }
   },
 };
