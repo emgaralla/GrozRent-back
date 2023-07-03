@@ -12,6 +12,7 @@ app.use(cors());
 app.use(require("./router/user.route"));
 app.use(require("./router/category.route"))
 app.use(require("./router/product.route"))
+app.use(require("./router/otziv.route"))
 
 
 mongoose
