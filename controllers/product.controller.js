@@ -25,6 +25,7 @@ module.exports.productController = {
   getUserProduct: async (req, res) => {
     const data = await Product.find({ user: req.user.id });
     res.json(data);
+  },
   findOneProduct: async (req, res) => {
     try {
       const oneProduct = await Product.findById(req.params.id).populate("user");
