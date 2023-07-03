@@ -11,7 +11,7 @@ module.exports.productController = {
         price: req.body.price,
         categorie: req.body.categorie,
         image: req.files,
-        user: req.user.id
+        user: req.user.id,
       });
       res.json(product);
     } catch (error) {
@@ -20,6 +20,10 @@ module.exports.productController = {
   },
   findProducts: async (req, res) => {
     const data = await Product.find();
+    res.json(data);
+  },
+  getUserProduct: async (req, res) => {
+    const data = await Product.find({ user: req.user.id });
     res.json(data);
   },
 };
