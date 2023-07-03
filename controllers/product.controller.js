@@ -11,7 +11,7 @@ module.exports.productController = {
         price: req.body.price,
         categorie: req.body.categorie,
         image: req.files,
-        user: req.user.id
+        user: req.user.id,
       });
       res.json(product);
     } catch (error) {
@@ -19,7 +19,16 @@ module.exports.productController = {
     }
   },
   findProducts: async (req, res) => {
-    const data = await Product.find();
+    const data = await Product.find().populate("user");
     res.json(data);
+  },
+  findOneProduct: async (req, res) => {
+    try {
+      const oneProduct = await Product.findById(req.params.id).populate("user");
+
+      res.json(oneProduct);
+    } catch (error) {
+      res.json({ error: error.message });
+    }
   },
 };
