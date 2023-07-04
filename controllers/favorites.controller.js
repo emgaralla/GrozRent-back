@@ -5,7 +5,6 @@ module.exports.favoritesController = {
     try {
       const data = await Favorite.create({
         user: req.user.id,
-        // favoriteProducts: req.body.favoriteProducts
       });
       res.json(data);
     } catch (error) {
@@ -13,7 +12,6 @@ module.exports.favoritesController = {
     }
   },
   addFavorite: async (req, res) => {
-    // console.log(res)
     try {
       const data = await Favorite.findOneAndUpdate(
         {user: req.user.id},

@@ -7,7 +7,7 @@ const router = Router();
 router.post(
   "/products",
   authmidlleware,
-  fileMiddleware.array("img", 4),
+  fileMiddleware.array("img", 5),
   productController.addProduct
 );
 router.get("/products", productController.findProducts);
