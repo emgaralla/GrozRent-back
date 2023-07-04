@@ -35,4 +35,16 @@ module.exports.productController = {
       res.json({ error: error.message });
     }
   },
+  removeImage: async (req, res) => {
+    try {
+      const oneProduct = await Product.findByIdAndUpdate(
+        req.params.id,
+        { $pull: { image: { filename: req.body.filename } } },
+        { new: true }
+      );
+      res.json(oneProduct);
+    } catch (error) {
+      res.json({ error: error.message });
+    }
+  },
 };
