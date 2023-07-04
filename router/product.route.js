@@ -14,5 +14,6 @@ router.get("/products", productController.findProducts);
 
 router.get("/products/:id", productController.findOneProduct);
 router.get("/user-products",authmidlleware, productController.getUserProduct);
+router.patch("/user-product-image/:id",authmidlleware, productController.removeImage);
 
 module.exports = router;
