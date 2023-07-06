@@ -4,6 +4,7 @@ const authmidlleware = require("../middlewares/auth.middleware");
 
 const router = Router()
 
+router.get('/favorites/:userId', favoritesController.getFavorites)
 router.post('/favorites', authmidlleware, favoritesController.postFavorite)
 router.patch('/favorites', authmidlleware, favoritesController.addFavorite)
 
